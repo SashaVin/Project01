@@ -1,0 +1,27 @@
+from graphics import * 
+import time 
+import random 
+n = int(input('Введите количество ')) 
+def s(x1, x2, x3, y1, y2, y3, n0): 
+  if n0!=0: 
+    u = Polygon(Point(x1, y1), Point(x2, y2), Point(x3, y3)) 
+    u.draw(win) 
+    a1 = (x1 + x2) / 2 
+    a2 = (x1 + x3) / 2 
+    a3 = (x2 + x3) / 2 
+    b1 = (y1 + y2) / 2 
+    b2 = (y1 + y3) / 2 
+    b3 = (y2 + y3) / 2 
+    t = Polygon(Point(a1, b1), Point(a2, b2), Point(a3, b3)) 
+    t.setFill(color_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))) 
+    t.draw(win)   
+    n0 = n0-1 
+    s(x1, a1, a2, y1, b1, b2, n0)   
+    s(x2, a1, a3, y2, b1, b3, n0) 
+    s(x3, a2, a3, y3, b2, b3, n0) 
+winWidth = 800 
+winHeight = 600 
+win = GraphWin("Окно", winWidth, winHeight) 
+s(200,400,600,500,100,500,n) 
+while(True): 
+  print('Thank You')
